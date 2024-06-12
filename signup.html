@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .single-line-input {
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 4px 0;
+            transition: border-color 0.3s;
+        }
+        .single-line-input:focus {
+            border-color: #dc2626; /* Same color as Create Account button */
+            outline: none;
+        }
+        .rotate-animation {
+            animation: rotate 1s linear;
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center h-screen bg-white">
+    <div class="flex w-full max-w-screen-lg bg-white rounded-lg overflow-hidden">
+        <div class="flex items-center justify-center w-1/2 p-10 bg-white">
+            <img src="./Sign up-amico.png" alt="Phone and Shopping Cart Image" class="max-w-full h-auto">
+        </div>
+        <div class="w-1/2 p-10 bg-white">
+            <h2 class="mb-6 text-2xl font-semibold text-gray-800">Create an account</h2>
+            <form class="space-y-4">
+                <div>
+                    <label class="block mb-1 text-sm text-gray-600" for="username">Username</label>
+                    <input class="w-full single-line-input" type="text" id="username" name="username">
+                </div>
+                <div>
+                    <label class="block mb-1 text-sm text-gray-600" for="first-name">First name</label>
+                    <input class="w-full single-line-input" type="text" id="first-name" name="first-name">
+                </div>
+                <div>
+                    <label class="block mb-1 text-sm text-gray-600" for="last-name">Last name</label>
+                    <input class="w-full single-line-input" type="text" id="last-name" name="last-name">
+                </div>
+                <div>
+                    <label class="block mb-1 text-sm text-gray-600" for="email">Email or Phone Number</label>
+                    <input class="w-full single-line-input" type="text" id="email" name="email">
+                </div>
+                <div>
+                    <label class="block mb-1 text-sm text-gray-600" for="password">Password</label>
+                    <input class="w-full single-line-input" type="password" id="password" name="password">
+                </div>
+                <div>
+                    <label class="block mb-1 text-sm text-gray-600" for="re-password">Re-enter Password</label>
+                    <input class="w-full single-line-input" type="password" id="re-password" name="re-password">
+                </div>
+                <button type="submit" class="w-full py-2 mt-4 text-white bg-red-500 rounded-md hover:bg-red-600">Create Account</button>
+            </form>
+            <button id="google-signup" class="flex items-center justify-center w-full py-2 mt-4 border rounded-md hover:bg-gray-100">
+                <img id="google-icon" src="./google.png" alt="Google Icon" class="w-8 h-8 mr-2">
+                Sign up with Google
+            </button>
+            <p class="mt-4 text-sm text-gray-600">
+                Already have an account? <a href="#" class="text-blue-600 hover:underline">Log in</a>
+            </p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('google-signup').addEventListener('click', function() {
+            var googleIcon = document.getElementById('google-icon');
+            googleIcon.classList.add('rotate-animation');
+            googleIcon.addEventListener('animationend', function() {
+                googleIcon.classList.remove('rotate-animation');
+            });
+        });
+    </script>
+</body>
+</html>
